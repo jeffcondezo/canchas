@@ -6,8 +6,9 @@ from django.shortcuts import HttpResponse
 from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 
-from .serializer import DeporteSerializer
+from .serializer import DeporteSerializer, SucursalSerializer, HorarioxSucursalSerializer
 from .models import Deporte
+from .utils import getsucursalmodel, gethorariosmodel
 
 
 # Create your views here.
@@ -23,6 +24,20 @@ class JSONResponse(HttpResponse):
 
 class DeporteView(APIView):
     def get(self, request):
-        servicio_model = Deporte.objects.all()
-        servicio_serializer = DeporteSerializer(servicio_model, many=True)
-        return JSONResponse(servicio_serializer.data)
+        deporte_model = Deporte.objects.all()
+        deporte_serializer = DeporteSerializer(deporte_model, many=True)
+        return JSONResponse(deporte_serializer.data)
+
+
+class SucursalView(APIView):
+    def get(self, request):
+        sucursal_model = getsucursalmodel(request)
+        sucursal_serializer = SucursalSerializer(sucursal_model, many=True)
+        return JSONResponse(sucursal_serializer.data)
+
+
+class HorarioxSucursalView(APIView):
+    def get(self, request):
+        sucursal_model = gethorariosmodel(request)
+        horario_serializer = HorarioxSucursalSerializer(sucursal_model, many=True)
+        return JSONResponse(horario_serializer.data)
