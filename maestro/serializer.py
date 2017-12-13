@@ -7,12 +7,15 @@ class DeporteSerializer(serializers.ModelSerializer):
         model = Deporte
         fields = ('id', 'descripcion', 'imagen')
 
+#class Tipocanchaxsucursal(serializers.BaseSerializer):
+
 
 class SucursalSerializer(serializers.ModelSerializer):
     distrito = serializers.SlugRelatedField(
         slug_field='descripcion',
         read_only=True,
      )
+    # tipocanchas = Tipocanchaxsucursal()
 
     class Meta:
         model = Sucursal

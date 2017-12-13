@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 
 from .serializer import DeporteSerializer, SucursalSerializer, HorarioxSucursalSerializer
 from .models import Deporte
-from .utils import getsucursalmodel, gethorariosmodel
+from .utils import getsucursalmodel, gethorariosmodel, addhorariotoserialize
 
 
 # Create your views here.
@@ -23,7 +23,7 @@ class JSONResponse(HttpResponse):
 
 
 class DeporteView(APIView):
-    def get(self, request):
+    def get(self):
         deporte_model = Deporte.objects.all()
         deporte_serializer = DeporteSerializer(deporte_model, many=True)
         return JSONResponse(deporte_serializer.data)
@@ -40,4 +40,5 @@ class HorarioxSucursalView(APIView):
     def get(self, request):
         sucursal_model = gethorariosmodel(request)
         horario_serializer = HorarioxSucursalSerializer(sucursal_model, many=True)
-        return JSONResponse(horario_serializer.data)
+        data = addhorariotoserialize(horario_serializer.data, request)
+        return JSONResponse(data)

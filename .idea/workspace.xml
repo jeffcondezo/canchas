@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f3a9786-3cc2-49f4-83f8-5805e8ef0cb9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/maestro/utils.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/canchas.iml" afterPath="$PROJECT_DIR$/.idea/canchas.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/maestro/models.py" afterPath="$PROJECT_DIR$/maestro/models.py" />
       <change beforePath="$PROJECT_DIR$/maestro/serializer.py" afterPath="$PROJECT_DIR$/maestro/serializer.py" />
-      <change beforePath="$PROJECT_DIR$/maestro/urls.py" afterPath="$PROJECT_DIR$/maestro/urls.py" />
+      <change beforePath="$PROJECT_DIR$/maestro/utils.py" afterPath="$PROJECT_DIR$/maestro/utils.py" />
       <change beforePath="$PROJECT_DIR$/maestro/views.py" afterPath="$PROJECT_DIR$/maestro/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,23 +66,24 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maestro/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="86" column="45" lean-forward="true" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
+            <state relative-caret-position="139">
+              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
-                <marker date="1513113201575" expanded="true" signature="1893:2381" ph="SELECT id FR... id" />
-                <marker date="1513113201575" expanded="true" signature="1929:2223" ph="SELECT id, l... location_model" />
-                <marker date="1513113201575" expanded="true" signature="1929:2239" ph="SELECT id, l... maestro_sucursal" />
+                <marker date="1513193124055" expanded="true" signature="1113:1164" ph="..." />
+                <marker date="1513193124055" expanded="true" signature="1966:2454" ph="SELECT id FR... id" />
+                <marker date="1513193124055" expanded="true" signature="2002:2296" ph="SELECT id, l... location_model" />
+                <marker date="1513193124055" expanded="true" signature="2002:2312" ph="SELECT id, l... maestro_sucursal" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/maestro/serializer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="255">
+              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -106,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maestro/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="41" column="81" lean-forward="false" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
+            <state relative-caret-position="258">
+              <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="26" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -121,9 +118,11 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maestro/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,11 +160,11 @@
         <option value="D:/design/maestro/urls.py" />
         <option value="$PROJECT_DIR$/maestro/utls.py" />
         <option value="$PROJECT_DIR$/maestro/admin.py" />
-        <option value="$PROJECT_DIR$/maestro/models.py" />
-        <option value="$PROJECT_DIR$/maestro/serializer.py" />
         <option value="$PROJECT_DIR$/maestro/urls.py" />
-        <option value="$PROJECT_DIR$/maestro/utils.py" />
         <option value="$PROJECT_DIR$/maestro/views.py" />
+        <option value="$PROJECT_DIR$/maestro/models.py" />
+        <option value="$PROJECT_DIR$/maestro/utils.py" />
+        <option value="$PROJECT_DIR$/maestro/serializer.py" />
       </list>
     </option>
   </component>
@@ -195,6 +194,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,8 +222,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,19 +288,26 @@
       <option name="project" value="LOCAL" />
       <updated>1513031398823</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Dia 2">
+      <created>1513119820791</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1513119820791</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2632375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -326,7 +332,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dia 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dia 1" />
+    <MESSAGE value="Dia 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dia 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -342,15 +349,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/maestro/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="41" column="81" lean-forward="false" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/maestro/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-            <marker date="1513113201575" expanded="true" signature="1893:2381" ph="SELECT id FR... id" />
-            <marker date="1513113201575" expanded="true" signature="1929:2223" ph="SELECT id, l... location_model" />
-            <marker date="1513113201575" expanded="true" signature="1929:2239" ph="SELECT id, l... maestro_sucursal" />
+            <marker date="1513193124055" expanded="true" signature="1113:1164" ph="..." />
+            <marker date="1513193124055" expanded="true" signature="1966:2454" ph="SELECT id FR... id" />
+            <marker date="1513193124055" expanded="true" signature="2002:2296" ph="SELECT id, l... location_model" />
+            <marker date="1513193124055" expanded="true" signature="2002:2312" ph="SELECT id, l... maestro_sucursal" />
           </folding>
         </state>
       </provider>
@@ -409,9 +427,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-            <marker date="1513113201575" expanded="true" signature="1893:2381" ph="SELECT id FR... id" />
-            <marker date="1513113201575" expanded="true" signature="1929:2223" ph="SELECT id, l... location_model" />
-            <marker date="1513113201575" expanded="true" signature="1929:2239" ph="SELECT id, l... maestro_sucursal" />
+            <marker date="1513193124055" expanded="true" signature="1113:1164" ph="..." />
+            <marker date="1513193124055" expanded="true" signature="1966:2454" ph="SELECT id FR... id" />
+            <marker date="1513193124055" expanded="true" signature="2002:2296" ph="SELECT id, l... location_model" />
+            <marker date="1513193124055" expanded="true" signature="2002:2312" ph="SELECT id, l... maestro_sucursal" />
           </folding>
         </state>
       </provider>
@@ -467,9 +486,10 @@
           <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-            <marker date="1513113201575" expanded="true" signature="1893:2381" ph="SELECT id FR... id" />
-            <marker date="1513113201575" expanded="true" signature="1929:2223" ph="SELECT id, l... location_model" />
-            <marker date="1513113201575" expanded="true" signature="1929:2239" ph="SELECT id, l... maestro_sucursal" />
+            <marker date="1513193124055" expanded="true" signature="1113:1164" ph="..." />
+            <marker date="1513193124055" expanded="true" signature="1966:2454" ph="SELECT id FR... id" />
+            <marker date="1513193124055" expanded="true" signature="2002:2296" ph="SELECT id, l... location_model" />
+            <marker date="1513193124055" expanded="true" signature="2002:2312" ph="SELECT id, l... maestro_sucursal" />
           </folding>
         </state>
       </provider>
@@ -581,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +608,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_horarioatencion">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_dia">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maestro/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#10#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_reserva">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_subdeporte">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maestro/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+            <marker date="1513193124055" expanded="true" signature="1113:1164" ph="..." />
+            <marker date="1513193124055" expanded="true" signature="1966:2454" ph="SELECT id FR... id" />
+            <marker date="1513193124055" expanded="true" signature="2002:2296" ph="SELECT id, l... location_model" />
+            <marker date="1513193124055" expanded="true" signature="2002:2312" ph="SELECT id, l... maestro_sucursal" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_tipocancha">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -610,53 +687,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maestro/models.py">
+    <entry file="das://table:/f0bafdc1/5950a438-e067-42dc-b12a-34bf33a1a35b/canchas.public.maestro_cancha">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maestro/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="86" column="45" lean-forward="true" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
+        <state relative-caret-position="258">
+          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="26" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
-            <marker date="1513113201575" expanded="true" signature="1893:2381" ph="SELECT id FR... id" />
-            <marker date="1513113201575" expanded="true" signature="1929:2223" ph="SELECT id, l... location_model" />
-            <marker date="1513113201575" expanded="true" signature="1929:2239" ph="SELECT id, l... maestro_sucursal" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/maestro/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+        <state relative-caret-position="204">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/rest_framework/utils/serializer_helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/maestro/serializer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="255">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maestro/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="e#10#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maestro/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="41" column="81" lean-forward="false" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>

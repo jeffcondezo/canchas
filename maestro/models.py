@@ -36,11 +36,12 @@ class Deporte(models.Model):
 
 class Subdeporte(models.Model):
     descripcion = models.CharField(max_length=250)
-    deporte = models.ForeignKey(Deporte, on_delete=models.CASCADE)
+    deporte = models.ForeignKey(Deporte, on_delete=models.PROTECT)
 
 
 class Tipocancha(models.Model):
     descripcion = models.CharField(max_length=250)
+    subdeporte = models.ForeignKey(Subdeporte, on_delete=models.PROTECT)
 
 
 def empresa_path(instance, filename):
@@ -91,12 +92,28 @@ class Sucursal(models.Model):
     objects = LocationManager()
 
 
+class Dia(models.Model):
+    descripcion = models.CharField(max_length=250)
+    codigo = models.SmallIntegerField()
+
+
+class Horarioatencion(models.Model):
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
+    dia = models.ForeignKey(Dia, on_delete=models.PROTECT)
+    horainicio = models.TimeField()
+    horafin = models.TimeField()
+
+
 class Cancha(models.Model):
     descripcion = models.CharField(max_length=250)
     sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
     tipocancha = models.ForeignKey(Tipocancha, on_delete=models.PROTECT)
 
 
+class Reserva(models.Model):
+    cancha = models.ForeignKey(Cancha, on_delete=models.PROTECT)
+    fecha = models.DateField()
+    hora = models.TimeField()
 
 
 
