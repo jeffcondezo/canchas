@@ -6,9 +6,9 @@ from django.shortcuts import HttpResponse
 from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 
-from .serializer import DeporteSerializer, SucursalSerializer, HorarioxSucursalSerializer
-from .models import Deporte
-from .utils import getsucursalmodel, gethorariosmodel, addhorariotoserialize
+from .serializer import DeporteSerializer, SucursalSerializer, HorarioxSucursalSerial
+from .models import Deporte, Sucursal
+from .utils import getsucursalmodel, gethorariosdata, addtipocanchatoserialize
 
 
 # Create your views here.
@@ -31,14 +31,19 @@ class DeporteView(APIView):
 
 class SucursalView(APIView):
     def get(self, request):
-        sucursal_model = getsucursalmodel(request)
-        sucursal_serializer = SucursalSerializer(sucursal_model, many=True)
-        return JSONResponse(sucursal_serializer.data)
+        if 'id' in request.GET and request.GET['id'] != '':
+            sucursal_model = Sucursal.objects.filter(pk=request.GET['id'])
+            sucursal_serializer = SucursalSerializer(sucursal_model, many=True)
+            data = addtipocanchatoserialize(sucursal_serializer.data, request.GET['id'])
+        else:
+            sucursal_model = getsucursalmodel(request)
+            sucursal_serializer = SucursalSerializer(sucursal_model, many=True)
+            data = sucursal_serializer.data
+        return JSONResponse(data)
 
 
 class HorarioxSucursalView(APIView):
     def get(self, request):
-        sucursal_model = gethorariosmodel(request)
-        horario_serializer = HorarioxSucursalSerializer(sucursal_model, many=True)
-        data = addhorariotoserialize(horario_serializer.data, request)
-        return JSONResponse(data)
+        horario_data = gethorariosdata(request)
+        horario_serializer = HorarioxSucursalSerial(horario_data, many=True)
+        return JSONResponse(horario_serializer.data)

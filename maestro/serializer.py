@@ -7,22 +7,18 @@ class DeporteSerializer(serializers.ModelSerializer):
         model = Deporte
         fields = ('id', 'descripcion', 'imagen')
 
-#class Tipocanchaxsucursal(serializers.BaseSerializer):
-
 
 class SucursalSerializer(serializers.ModelSerializer):
     distrito = serializers.SlugRelatedField(
         slug_field='descripcion',
         read_only=True,
      )
-    # tipocanchas = Tipocanchaxsucursal()
 
     class Meta:
         model = Sucursal
         fields = ('id', 'descripcion', 'distrito', 'latitud', 'longitud')
 
 
-class HorarioxSucursalSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Sucursal
-        fields = ('id', 'descripcion')
+class HorarioxSucursalSerial(serializers.Serializer):
+    timeinicio = serializers.TimeField()
+    horainicio = serializers.IntegerField()

@@ -111,11 +111,13 @@ class Cancha(models.Model):
 
 
 class Reserva(models.Model):
-    cancha = models.ForeignKey(Cancha, on_delete=models.PROTECT)
     fecha = models.DateField()
+
+
+class Detallereserva(models.Model):
+    cancha = models.ForeignKey(Cancha, on_delete=models.PROTECT)
     hora = models.TimeField()
-
-
+    reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
 
 
 
