@@ -1,7 +1,10 @@
-from .models import Sucursal, Horarioatencion, Cancha, Detallereserva
+from .models import Sucursal, Horarioatencion, Cancha,\
+    Detallereserva, Consolidadoreserva, Reserva
 from datetime import datetime
 import datetime as dt
-
+from .forms import ReservaForm
+import string
+from django.db import IntegrityError
 
 # SucursalView
 def getsucursalxdeporte(id_deporte):
@@ -28,6 +31,58 @@ def getsucursalmodel(request):
     else:
         sucursal_model = Sucursal.objects.none()
     return sucursal_model
+
+
+def getsucursalxfechahora(request):
+    validhours = range(0, 25)
+    if 'fecha' in request.GET and request.GET['fecha'] != '':
+        try:
+            fecha = datetime.strptime(request.GET['fecha'], '%Y-%m-%d')
+            if 'horainicio' in request.GET and int(request.GET['horainicio']) in validhours:
+                if 'horafin' in request.GET and int(request.GET['horafin']) in validhours:
+                    if 'tipocancha' in request.GET and request.GET['tipocancha'] != "":
+                        sucursal_model = filtrarsucursaldisponible(getsucursalmodel(request), fecha,
+                                                                   request.GET['horainicio'],
+                                                                   request.GET['horafin'],
+                                                                   request.GET['tipocancha'])
+                    else:
+                        sucursal_model = Sucursal.objects.none()
+                else:
+                    sucursal_model = Sucursal.objects.none()
+            else:
+                sucursal_model = Sucursal.objects.none()
+        except ValueError:
+            sucursal_model = Sucursal.objects.none()
+    return sucursal_model
+
+
+def filtrarsucursaldisponible(sucursal, fecha, horainicio, horafin, tipocancha):
+    horas = range(int(horainicio), int(horafin))
+    sucursal_resp = sucursal
+    for s in sucursal:
+        horario = []
+        horarioatencion_model = Horarioatencion.objects.filter(sucursal=s.id, dia__codigo=fecha.weekday())
+        for ha in horarioatencion_model:
+            horario.extend(range(ha.horainicio.hour, ha.horafin.hour))
+        if set(horario).issubset(set(horas)):
+            for h in horas:
+                try:
+                    consolidado_model = Consolidadoreserva.objects.get(fecha=fecha, hora__hour=h,
+                                                                       tipocancha=tipocancha)
+                    if not consolidado_model.is_libre:
+                        sucursal_resp.exclude(id=s.id)
+                except Consolidadoreserva.DoesNotExist:
+                    pass
+        else:
+            sucursal_resp.exclude(id=s.id)
+        # canchas_count = Cancha.objects.filter(sucursal=s.id, tipocancha=tipocancha).count()
+        # for h in horas:
+        #     reserva_model = Detallereserva.objects.filter(cancha__sucursal=s.id,
+        #                                                   cancha__tipocancha=tipocancha, reserva__fecha=fecha,
+        #                                                   hora__hour=h).count()
+        #     if canchas_count <= reserva_model:
+        #         sucursal_resp.exclude(id=s.id)
+    return sucursal_resp
 
 
 def addtipocanchatoserialize(serialize, id_sucursal):
@@ -67,14 +122,20 @@ def gethorariodisponible(fecha, id_sucursal, tipocancha):
     horarioatencion_model = Horarioatencion.objects.filter(sucursal=id_sucursal, dia__codigo=fecha.weekday())
     for ha in horarioatencion_model:
         horario.extend(range(ha.horainicio.hour, ha.horafin.hour))
-    canchas_count = Cancha.objects.filter(sucursal=id_sucursal, tipocancha=tipocancha) .count()
-    reserva_model = Detallereserva.objects.filter(cancha__sucursal=id_sucursal,
-                                                  cancha__tipocancha=tipocancha, reserva__fecha=fecha)
+    # canchas_count = Cancha.objects.filter(sucursal=id_sucursal, tipocancha=tipocancha) .count()
+    # reserva_model = Detallereserva.objects.filter(cancha__sucursal=id_sucursal,
+    #                                               cancha__tipocancha=tipocancha, reserva__fecha=fecha)
+    # for ho in horario:
+    #     contador = reserva_model.filter(hora__hour=ho).count()
+    #     if contador < canchas_count:
+    #         horariodisponible.append(ho)
     for ho in horario:
-        contador = reserva_model.filter(hora__hour=ho).count()
-        if contador < canchas_count:
+        try:
+            consolidado_model = Consolidadoreserva.objects.get(fecha=fecha, hora__hour=ho, tipocancha=tipocancha)
+            if consolidado_model.is_libre:
+                horariodisponible.append(ho)
+        except Consolidadoreserva.DoesNotExist:
             horariodisponible.append(ho)
-    print horariodisponible
     return horariodisponible
 
 
@@ -83,3 +144,62 @@ def formathorario(horario):
     for ho in horario:
         data.append({'timeinicio': dt.time(ho), 'horainicio': ho})
     return data
+
+
+# Reserva
+def createreserva(request):
+    form = ReservaForm(request.POST)
+    if form.is_valid():
+        reserva_model = Reserva(fecha=form.cleaned_data['fecha']).save()
+        lista_horas = string.split(form.cleaned_data['listahora'], ',')
+        fecha = form.cleaned_data['fecha']
+        tipocancha = form.cleaned_data['tipocancha']
+        idsucursal = form.cleaned_data['idsucursal']
+        response = 'Success'
+        for lh in lista_horas:
+            r = savedetallereserva(fecha, int(lh), tipocancha, reserva_model, idsucursal)
+            if r is False:
+                response = 'Error'
+                break
+    else:
+        response = 'Error'
+    return response
+
+
+def savedetallereserva(fecha, hora, tipocancha, reserva, idsucursal):
+    response = True
+    error_count = 0
+    for_count = 0
+    try:
+        consolidado_model = Consolidadoreserva.objects.get(fecha=fecha, hora__hour=hora, tipocancha=tipocancha)
+        if consolidado_model.is_libre:
+            for cl in string.split(consolidado_model.canchaslibres, ','):
+                for_count += 1
+                cod_cancha = cl.zfill(6)
+                cod_fecha = fecha.strftime('%Y%m%d')
+                cod_hora = hora.zfill(2)
+                cancha = Cancha.objects.get(id=int(cl))
+                detalle_model = Detallereserva(cancha=cancha, hora=dt.time(hora), reserva=reserva,
+                                               codigo=cod_cancha+cod_fecha+cod_hora)
+                try:
+                    detalle_model.save()
+                    break
+                except IntegrityError:
+                    error_count += 1
+            if error_count >= for_count:
+                response = False
+        else:
+            response = False
+    except Consolidadoreserva.DoesNotExist:
+        cancha_model = Cancha.objects.filter(sucursal=idsucursal, tipocancha=tipocancha)
+        for c in cancha_model:
+            for_count += 1
+            detalle_model = Detallereserva(cancha=c, hora=dt.time(hora), reserva=reserva, codigo='2')
+            try:
+                detalle_model.save()
+                break
+            except IntegrityError:
+                error_count += 1
+        if error_count >= for_count:
+            response = False
+    return response

@@ -1,19 +1,38 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Jeff PC">
     <words>
+      <w>activo</w>
       <w>cancha</w>
       <w>canchas</w>
+      <w>canchaslibres</w>
+      <w>canchasocupadas</w>
+      <w>consolidado</w>
+      <w>consolidadoreserva</w>
+      <w>createreserva</w>
       <w>deporte</w>
       <w>detallereserva</w>
+      <w>encargado</w>
+      <w>filtrarsucursaldisponible</w>
       <w>formathorario</w>
       <w>gethorariodisponible</w>
+      <w>getsucursalmodel</w>
+      <w>getsucursalxfechahora</w>
+      <w>horafin</w>
       <w>horainicio</w>
       <w>horario</w>
       <w>horarioatencion</w>
       <w>horariodisponible</w>
+      <w>horariox</w>
+      <w>idsucursal</w>
+      <w>libre</w>
+      <w>listahora</w>
+      <w>phonenumber</w>
       <w>reserva</w>
+      <w>savedetallereserva</w>
       <w>sucursal</w>
+      <w>timeinicio</w>
       <w>tipocancha</w>
+      <w>validhours</w>
     </words>
   </dictionary>
 </component>

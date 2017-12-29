@@ -2,9 +2,16 @@
 from __future__ import unicode_literals
 
 from django.db import models, connection
+from django.contrib.auth.models import User
 
 
 # Create your models here.
+class Usuario(models.Model):
+    celular = models.CharField(max_length=9)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='usuario')
+    is_encargado = models.BooleanField(default=False)
+
+
 class Departamento(models.Model):
     descripcion = models.CharField(max_length=250)
 
@@ -92,6 +99,12 @@ class Sucursal(models.Model):
     objects = LocationManager()
 
 
+class Encargado(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
+    is_activo = models.BooleanField()
+
+
 class Dia(models.Model):
     descripcion = models.CharField(max_length=250)
     codigo = models.SmallIntegerField()
@@ -112,14 +125,21 @@ class Cancha(models.Model):
 
 class Reserva(models.Model):
     fecha = models.DateField()
+    is_pagado = models.BooleanField(default=False)
 
 
 class Detallereserva(models.Model):
     cancha = models.ForeignKey(Cancha, on_delete=models.PROTECT)
     hora = models.TimeField()
     reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE)
+    codigo = models.CharField(max_length=14, unique=True, null=True, blank=True)
 
 
-
-
-
+class Consolidadoreserva(models.Model):
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
+    fecha = models.DateField()
+    hora = models.TimeField()
+    canchasocupadas = models.CharField(max_length=150, blank=True, null=True)
+    canchaslibres = models.CharField(max_length=150, blank=True, null=True)
+    tipocancha = models.ForeignKey(Tipocancha, on_delete=models.PROTECT)
+    is_libre = models.BooleanField(default=True)
